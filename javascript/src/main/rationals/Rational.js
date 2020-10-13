@@ -10,7 +10,9 @@ export default class Rational {
 
     this.numerator = Math.trunc(numerator);
     this.denominator = Math.trunc(denominator);
-
+    if(this.denominator === 0) {
+	throw new Error("Denominator is zero");
+    } 
     if (this.numerator !== 0) {
       const greatestCommonDivisor = gcd(this.numerator, this.denominator);
       this.numerator /= greatestCommonDivisor;
