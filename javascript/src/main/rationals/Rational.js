@@ -26,7 +26,7 @@ export default class Rational {
   }
 
   toString() {
-    return "";
+    return `${this.numerator}/${this.denominator}`;
   }
   plus(other) {
     Rational.verifyIsRational(other);
