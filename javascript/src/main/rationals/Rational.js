@@ -18,12 +18,16 @@ export default class Rational {
       this.numerator /= greatestCommonDivisor;
       this.denominator /= greatestCommonDivisor;
     }
+	if (this.denominator < 0)
+	  {
+		  this.numerator *=  -1;
+		  this.denominator *=  -1;
+	  }
   }
 
   toString() {
     return "";
   }
-
   plus(other) {
     Rational.verifyIsRational(other);
     if (this.numerator === 0)
