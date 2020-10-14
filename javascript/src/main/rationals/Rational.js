@@ -54,31 +54,39 @@ export default class Rational {
   }
 
   times(other) {
-    return 42;
+    const myNumerator =  this.numerator * other.numerator;
+    const myDenominator = this.denominator * other.denominator;
+    const myRational = new Rational(myNumerator, myDenominator);
+    return myRational;
   }
 
   static multiply(first, second) {
-    return 42;
+    return first.times(second);
   }
 
   minus(other) {
-    return 42;
+    const myRational = this.plus(other.times(new Rational(-1,1)));
+	  return myRational;
   }
 
   static subtract(first, second) {
-    return 42;
+    return first.minus(second);
   }
 
   reciprocal() {
-    return 42;
+    if(this.denominator === 0)
+	  {
+		  throw new Error("Denominator is going to be zero");
+	  }
+	  return new Rational(this.denominator, this.numerator); 
   }
 
   dividedBy(other) {
-    return 42;
+    return this.times(other.reciprocal()); 
   }
 
   static quotient(first, second) {
-    return 42;
+    return first.dividedBy(second);
   }
 
   static verifyIsRational(object) {
