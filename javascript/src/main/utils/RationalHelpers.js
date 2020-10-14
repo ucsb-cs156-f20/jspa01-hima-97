@@ -26,7 +26,8 @@ const addRationalsFromUserInput = (userInput) => {
 };
 
 const subtractRationalsFromUserInput = (userInput) => {
-  return 42;
+  const [firstRational, secondRational] = parseRationalsFromUserInput(userInput);
+	return Rational.subtract(firstRational, secondRational);
 };
 
 const multiplyRationalsFromUserInput = (userInput) => {
