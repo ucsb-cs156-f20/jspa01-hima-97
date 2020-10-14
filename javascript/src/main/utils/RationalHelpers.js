@@ -1,10 +1,14 @@
 import Rational from "main/rationals/Rational";
 
 const parseRationalsFromUserInput = (userInput) => {
-  const rationals = userInput.map((value) => {
+    const rationals = userInput.map((value) => {
     const numerator = parseInt(value.numerator);
     const denominator = parseInt(value.denominator);
 
+	    if(isNaN(numerator) || isNaN(denominator))
+	    {
+		    throw new Error("not a number");
+	    }
     return new Rational(numerator, denominator);
   });
 
@@ -26,7 +30,8 @@ const subtractRationalsFromUserInput = (userInput) => {
 };
 
 const multiplyRationalsFromUserInput = (userInput) => {
-  return 42;
+  const [firstRational, secondRational] = parseRationalsFromUserInput(userInput);
+	return Rational.multiply(firstRational, secondRational);
 };
 
 const divideRationalsFromUserInput = (userInput) => {
