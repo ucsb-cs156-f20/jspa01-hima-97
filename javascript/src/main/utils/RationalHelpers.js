@@ -36,7 +36,12 @@ const multiplyRationalsFromUserInput = (userInput) => {
 };
 
 const divideRationalsFromUserInput = (userInput) => {
-  return 42;
+  const [firstRational, secondRational] = parseRationalsFromUserInput(userInput);
+	if(secondRational.numerator === 0)
+	{
+		throw new Error("numerator is zero");
+	}
+	return Rational.quotient(firstRational, secondRational);
 };
 
 export {
